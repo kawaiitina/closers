@@ -154,20 +154,20 @@
     </div>
 
     <div>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3" v-if="캐릭터_데이터[캐릭터].타입 === '물리' || 캐릭터_데이터[캐릭터].타입 === '하이브리드'">
             <span class="input-group-text">물리 공격력</span>
             <input type="number" class="form-control" v-model.number="물공">
         </div>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3" v-if="캐릭터_데이터[캐릭터].타입 === '마법' || 캐릭터_데이터[캐릭터].타입 === '하이브리드'">
             <span class="input-group-text">마법 공격력</span>
             <input type="number" class="form-control" v-model.number="마공">
         </div>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3" v-if="캐릭터_데이터[캐릭터].타입 === '물리' || 캐릭터_데이터[캐릭터].타입 === '하이브리드'">
             <span class="input-group-text">물리 치명타 피해량</span>
             <input type="number" class="form-control" v-model.number="물치피">
             <span class="input-group-text">%</span>
         </div>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3" v-if="캐릭터_데이터[캐릭터].타입 === '마법' || 캐릭터_데이터[캐릭터].타입 === '하이브리드'">
             <span class="input-group-text">마법 치명타 피해량</span>
             <input type="number" class="form-control" v-model.number="마치피">
             <span class="input-group-text">%</span>
@@ -290,7 +290,6 @@
     </div>
     <div v-if="캐릭터 === '이세하' || 
         캐릭터 === '제이' || 
-        캐릭터 === '하피' || 
         캐릭터 === '루나' || 
         캐릭터 === '소마'|| 
         캐릭터 === '미래'">
@@ -387,7 +386,6 @@
     </div>
     <div v-if="캐릭터 === '바이올렛' || 
     캐릭터 === '김철수' || 
-    캐릭터 === '볼프강' || 
     캐릭터 === '루시'">
         <table class="table">
             <tr>
@@ -500,7 +498,6 @@
             </tr>
         </table>
     </div>
-
     <div v-if="캐릭터 === '나타'">
         <table class="table">
             <tr>
@@ -542,6 +539,50 @@
             <tr>
                 <th>스킬 재사용 대기시간 감소 1%</th>
                 <td class="text-end">{{ 숫자콤마(나타종전효율계산().쿨감1퍼센트추가종전) }}</td>
+            </tr>
+        </table>
+    </div>
+    <div v-if="캐릭터 === '하피'">
+        <table class="table">
+            <tr>
+                <th></th>
+                <th class="text-end">종합 전투력 상승량</th>
+            </tr>
+            <tr>
+                <th>물리 공격력 100</th>
+                <td class="text-end">{{ 숫자콤마(하피종전효율계산().물공100추가종전) }}</td>
+            </tr>
+            <tr>
+                <th>물리 공격력 1%</th>
+                <td class="text-end">{{ 숫자콤마(하피종전효율계산().물공1퍼센트추가종전) }}</td>
+            </tr>
+            <tr>
+                <th>물리 치명타 피해량 1%</th>
+                <td class="text-end">{{ 숫자콤마(하피종전효율계산().물치피1퍼센트추가종전) }}</td>
+            </tr>
+            <tr>
+                <th>조건부 치명타 피해량 1%</th>
+                <td class="text-end">{{ 숫자콤마(하피종전효율계산().조건부치피1퍼센트추가종전) }}</td>
+            </tr>
+            <tr>
+                <th>에어리얼시 피해량 증가 1%</th>
+                <td class="text-end">{{ 숫자콤마(하피종전효율계산().에피증1퍼센트추가종전) }}</td>
+            </tr>
+            <tr>
+                <th>백어택시 피해량 증가 1%</th>
+                <td class="text-end">{{ 숫자콤마(하피종전효율계산().백피증1퍼센트추가종전) }}</td>
+            </tr>
+            <tr>
+                <th>체이스시 피해량 증가 1%</th>
+                <td class="text-end">{{ 숫자콤마(하피종전효율계산().체피증1퍼센트추가종전) }}</td>
+            </tr>
+            <tr>
+                <th>공격 속도 1%</th>
+                <td class="text-end">{{ 숫자콤마(하피종전효율계산().공속1퍼센트추가종전) }}</td>
+            </tr>
+            <tr>
+                <th>스킬 재사용 대기시간 감소 1%</th>
+                <td class="text-end">{{ 숫자콤마(하피종전효율계산().쿨감1퍼센트추가종전) }}</td>
             </tr>
         </table>
     </div>
