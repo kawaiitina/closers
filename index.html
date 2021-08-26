@@ -61,12 +61,12 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text">총 물리공격력이 </span>
                                 <input type="number" class="form-control" v-model.number="하락한물공퍼센트">
-                                <span class="input-group-text">%만큼 하락해서</span>
+                                <span class="input-group-text">%만큼 하락하면</span>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">물리 공격력이</span>
                                 <input type="number" class="form-control" v-model.number="하락한물공">
-                                <span class="input-group-text">된다면</span>
+                                <span class="input-group-text">된다.</span>
                             </div>
                             <div>
                                 순수 물리 공격력: {{ 숫자콤마(순수물리공격력계산().순물공) }}, 총 물리 공격력(%): {{ 소수점두자리콤마(순수물리공격력계산().총물공) }}
@@ -82,12 +82,12 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text">총 마법공격력이 </span>
                                 <input type="number" class="form-control" v-model.number="하락한마공퍼센트">
-                                <span class="input-group-text">%만큼 하락해서</span>
+                                <span class="input-group-text">%만큼 하락하면</span>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">마법 공격력이</span>
                                 <input type="number" class="form-control" v-model.number="하락한마공">
-                                <span class="input-group-text">된다면</span>
+                                <span class="input-group-text">된다.</span>
                             </div>
                             <div>
                                 순수 마법 공격력: {{ 숫자콤마(순수마법공격력계산().순마공) }}, 총 마법 공격력(%): {{ 소수점두자리콤마(순수마법공격력계산().총마공) }}
@@ -127,12 +127,12 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text">총 물리, 마법공격력이 </span>
                             <input type="number" class="form-control" v-model.number="하락한물공퍼센트">
-                            <span class="input-group-text">%만큼 하락해서</span>
+                            <span class="input-group-text">%만큼 하락하면</span>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">물리 공격력이</span>
                             <input type="number" class="form-control" v-model.number="하락한물공">
-                            <span class="input-group-text">된다면</span>
+                            <span class="input-group-text">된다.</span>
                         </div>
                         <div>
                             순수 물리 공격력(보정 전): {{ 숫자콤마(서유리순수물리공격력계산().보정전순물공) }}, 총 물리 공격력(%): {{ 숫자콤마(서유리순수물리공격력계산().총물공) }}
@@ -146,12 +146,12 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text">총 물리, 마법공격력이 </span>
                             <input type="number" class="form-control" v-model.number="하락한물공퍼센트">
-                            <span class="input-group-text">%만큼 하락해서</span>
+                            <span class="input-group-text">%만큼 하락하면</span>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">마법 공격력이</span>
                             <input type="number" class="form-control" v-model.number="하락한마공">
-                            <span class="input-group-text">된다면</span>
+                            <span class="input-group-text">된다.</span>
                         </div>
                         <div>
                             순수 마법 공격력(보정) 전): {{ 숫자콤마(서유리순수마법공격력계산().보정전순마공) }}, 총 마법 공격력(%): {{ 소수점두자리콤마(서유리순수마법공격력계산().총마공) }}
