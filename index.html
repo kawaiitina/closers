@@ -49,41 +49,49 @@
                     </div>
                     <div class="modal-body">
                         <div class="input-group mb-3">
-                            <span class="input-group-text">처음 물리 공격력이</span>
-                            <input type="number" class="form-control" v-model.number="물공">
-                            <span class="input-group-text">에서</span>
+                            <span class="input-group-text">웨폰 코어 공격력</span>
+                            <input type="number" class="form-control" v-model.number="코어공격력">
                         </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">총 물리공격력이 </span>
-                            <input type="number" class="form-control" v-model.number="하락한물공퍼센트">
-                            <span class="input-group-text">%만큼 하락해서</span>
+                        <div v-if="캐릭터_데이터[캐릭터].타입 === '물리' || 캐릭터_데이터[캐릭터].타입 === '하이브리드'">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">처음 물리 공격력이</span>
+                                <input type="number" class="form-control" v-model.number="물공">
+                                <span class="input-group-text">에서</span>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">총 물리공격력이 </span>
+                                <input type="number" class="form-control" v-model.number="하락한물공퍼센트">
+                                <span class="input-group-text">%만큼 하락해서</span>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">물리 공격력이</span>
+                                <input type="number" class="form-control" v-model.number="하락한물공">
+                                <span class="input-group-text">된다면</span>
+                            </div>
+                            <div>
+                                순수 물리 공격력: {{ 숫자콤마(순수물리공격력계산().순물공) }}, 총 물리 공격력(%): {{ 소수점두자리콤마(순수물리공격력계산().총물공) }}
+                            </div>   
+                            <hr> 
                         </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">물리 공격력이</span>
-                            <input type="number" class="form-control" v-model.number="하락한물공">
-                            <span class="input-group-text">된다면</span>
-                        </div>
-                        <div>
-                            순수 물리 공격력: {{ 숫자콤마(순수물리공격력계산().순물공) }}, 총 물리 공격력(%): {{ 소수점두자리콤마(순수물리공격력계산().총물공) }}
-                        </div>
-                        <hr>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">처음 마법 공격력이</span>
-                            <input type="number" class="form-control" v-model.number="마공">
-                            <span class="input-group-text">에서</span>
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">총 마법공격력이 </span>
-                            <input type="number" class="form-control" v-model.number="하락한마공퍼센트">
-                            <span class="input-group-text">%만큼 하락해서</span>
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">마법 공격력이</span>
-                            <input type="number" class="form-control" v-model.number="하락한마공">
-                            <span class="input-group-text">된다면</span>
-                        </div>
-                        <div>
-                            순수 마법 공격력: {{ 숫자콤마(순수마법공격력계산().순마공) }}, 총 마법 공격력(%): {{ 소수점두자리콤마(순수마법공격력계산().총마공) }}
+                        <div v-if="캐릭터_데이터[캐릭터].타입 === '마법' || 캐릭터_데이터[캐릭터].타입 === '하이브리드'">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">처음 마법 공격력이</span>
+                                <input type="number" class="form-control" v-model.number="마공">
+                                <span class="input-group-text">에서</span>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">총 마법공격력이 </span>
+                                <input type="number" class="form-control" v-model.number="하락한마공퍼센트">
+                                <span class="input-group-text">%만큼 하락해서</span>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">마법 공격력이</span>
+                                <input type="number" class="form-control" v-model.number="하락한마공">
+                                <span class="input-group-text">된다면</span>
+                            </div>
+                            <div>
+                                순수 마법 공격력: {{ 숫자콤마(순수마법공격력계산().순마공) }}, 총 마법 공격력(%): {{ 소수점두자리콤마(순수마법공격력계산().총마공) }}
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -107,6 +115,10 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">웨폰 코어 공격력</span>
+                            <input type="number" class="form-control" v-model.number="코어공격력">
+                        </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">처음 물리 공격력이</span>
                             <input type="number" class="form-control" v-model.number="물공">
@@ -142,7 +154,7 @@
                             <span class="input-group-text">된다면</span>
                         </div>
                         <div>
-                            순수 마법 공격력(보전 전): {{ 숫자콤마(서유리순수마법공격력계산().보정전순마공) }}, 총 마법 공격력(%): {{ 소수점두자리콤마(서유리순수마법공격력계산().총마공) }}
+                            순수 마법 공격력(보정) 전): {{ 숫자콤마(서유리순수마법공격력계산().보정전순마공) }}, 총 마법 공격력(%): {{ 소수점두자리콤마(서유리순수마법공격력계산().총마공) }}
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -730,7 +742,6 @@
             </tr>
         </table>
     </div>
-
     <div>모든 계산 결과는 실제 값과 다를 수 있습니다. 참고용으로만 사용하시기 바랍니다.</div>
     
     <div>
@@ -743,7 +754,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">종합전투력 계산 공식</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">사용된 종합전투력 계산 공식</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -848,6 +859,167 @@
                 </div>
             </div>
         </div>
+    </div>
+    <hr>
+    <h2>스킬 데미지</h2>
+    <div class="input-group mb-3">
+        <span class="input-group-text">치피감</span>
+        <input type="number" class="form-control" v-model.number="치피감">
+        <span class="input-group-text">%</span>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">뎀감</span>
+        <input type="number" class="form-control" v-model.number="뎀감">
+        <span class="input-group-text">%</span>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">스킬계수</span>
+        <input type="number" class="form-control" v-model.number="스킬계수">
+        <span class="input-group-text">%</span>
+    </div>
+    <div v-if="캐릭터_데이터[캐릭터].타입 === '물리' || 캐릭터_데이터[캐릭터].타입 === '하이브리드' ">
+        <table class="table">
+            <tr>
+                <th></th>
+                <th class="text-end">물리 데미지(배율)</th>
+            </tr>
+            <tr>
+                <th>정면</th>
+                <td class="text-end">{{ 숫자콤마(조건부물리데미지계산().정면) }} (100%)</td>
+            </tr>
+            <tr>
+                <th>에어리얼</th>
+                <td class="text-end">{{ 숫자콤마(조건부물리데미지계산().에) }} ({{ 숫자콤마(조건부물리데미지계산().에 / 조건부물리데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>백어택</th>
+                <td class="text-end">{{ 숫자콤마(조건부물리데미지계산().백) }} ({{ 숫자콤마(조건부물리데미지계산().백 / 조건부물리데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>체이스</th>
+                <td class="text-end">{{ 숫자콤마(조건부물리데미지계산().체) }} ({{ 숫자콤마(조건부물리데미지계산().체 / 조건부물리데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>에+백</th>
+                <td class="text-end">{{ 숫자콤마(조건부물리데미지계산().에백) }} ({{ 숫자콤마(조건부물리데미지계산().에백 / 조건부물리데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>에+체</th>
+                <td class="text-end">{{ 숫자콤마(조건부물리데미지계산().에체) }} ({{ 숫자콤마(조건부물리데미지계산().에체 / 조건부물리데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>백+체</th>
+                <td class="text-end">{{ 숫자콤마(조건부물리데미지계산().백체) }} ({{ 숫자콤마(조건부물리데미지계산().백체 / 조건부물리데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>에+백+체</th>
+                <td class="text-end">{{ 숫자콤마(조건부물리데미지계산().에백체) }} ({{ 숫자콤마(조건부물리데미지계산().에백체 / 조건부물리데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>위상력 개방 + 정면</th>
+                <td class="text-end">{{ 숫자콤마(조건부물리데미지계산().위) }} ({{ 숫자콤마(조건부물리데미지계산().위 / 조건부물리데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>위+에</th>
+                <td class="text-end">{{ 숫자콤마(조건부물리데미지계산().위에) }} ({{ 숫자콤마(조건부물리데미지계산().위에 / 조건부물리데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>위+백</th>
+                <td class="text-end">{{ 숫자콤마(조건부물리데미지계산().위백) }} ({{ 숫자콤마(조건부물리데미지계산().위백 / 조건부물리데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>위+체</th>
+                <td class="text-end">{{ 숫자콤마(조건부물리데미지계산().위체) }} ({{ 숫자콤마(조건부물리데미지계산().위체 / 조건부물리데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>위+에+백</th>
+                <td class="text-end">{{ 숫자콤마(조건부물리데미지계산().위에백) }} ({{ 숫자콤마(조건부물리데미지계산().위에백 / 조건부물리데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>위+에+체</th>
+                <td class="text-end">{{ 숫자콤마(조건부물리데미지계산().위에체) }} ({{ 숫자콤마(조건부물리데미지계산().위에체 / 조건부물리데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>위+백+체</th>
+                <td class="text-end">{{ 숫자콤마(조건부물리데미지계산().위백체) }} ({{ 숫자콤마(조건부물리데미지계산().위백체 / 조건부물리데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>위+에+백+체</th>
+                <td class="text-end">{{ 숫자콤마(조건부물리데미지계산().위에백체) }} ({{ 숫자콤마(조건부물리데미지계산().위에백체 / 조건부물리데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+        </table>
+    </div>
+    <div v-if="캐릭터_데이터[캐릭터].타입 === '마법' || 캐릭터_데이터[캐릭터].타입 === '하이브리드' ">
+        <table class="table">
+            <tr>
+                <th></th>
+                <th class="text-end">마법 데미지(배율)</th>
+            </tr>
+            <tr>
+                <th>정면</th>
+                <td class="text-end">{{ 숫자콤마(조건부마법데미지계산().정면) }} (100%)</td>
+            </tr>
+            <tr>
+                <th>에어리얼</th>
+                <td class="text-end">{{ 숫자콤마(조건부마법데미지계산().에) }} ({{ 숫자콤마(조건부마법데미지계산().에 / 조건부마법데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>백어택</th>
+                <td class="text-end">{{ 숫자콤마(조건부마법데미지계산().백) }} ({{ 숫자콤마(조건부마법데미지계산().백 / 조건부마법데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>체이스</th>
+                <td class="text-end">{{ 숫자콤마(조건부마법데미지계산().체) }} ({{ 숫자콤마(조건부마법데미지계산().체 / 조건부마법데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>에+백</th>
+                <td class="text-end">{{ 숫자콤마(조건부마법데미지계산().에백) }} ({{ 숫자콤마(조건부마법데미지계산().에백 / 조건부마법데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>에+체</th>
+                <td class="text-end">{{ 숫자콤마(조건부마법데미지계산().에체) }} ({{ 숫자콤마(조건부마법데미지계산().에체 / 조건부마법데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>백+체</th>
+                <td class="text-end">{{ 숫자콤마(조건부마법데미지계산().백체) }} ({{ 숫자콤마(조건부마법데미지계산().백체 / 조건부마법데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>에+백+체</th>
+                <td class="text-end">{{ 숫자콤마(조건부마법데미지계산().에백체) }} ({{ 숫자콤마(조건부마법데미지계산().에백체 / 조건부마법데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>위상력 개방 + 정면</th>
+                <td class="text-end">{{ 숫자콤마(조건부마법데미지계산().위) }} ({{ 숫자콤마(조건부마법데미지계산().위 / 조건부마법데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>위+에</th>
+                <td class="text-end">{{ 숫자콤마(조건부마법데미지계산().위에) }} ({{ 숫자콤마(조건부마법데미지계산().위에 / 조건부마법데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>위+백</th>
+                <td class="text-end">{{ 숫자콤마(조건부마법데미지계산().위백) }} ({{ 숫자콤마(조건부마법데미지계산().위백 / 조건부마법데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>위+체</th>
+                <td class="text-end">{{ 숫자콤마(조건부마법데미지계산().위체) }} ({{ 숫자콤마(조건부마법데미지계산().위체 / 조건부마법데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>위+에+백</th>
+                <td class="text-end">{{ 숫자콤마(조건부마법데미지계산().위에백) }} ({{ 숫자콤마(조건부마법데미지계산().위에백 / 조건부마법데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>위+에+체</th>
+                <td class="text-end">{{ 숫자콤마(조건부마법데미지계산().위에체) }} ({{ 숫자콤마(조건부마법데미지계산().위에체 / 조건부마법데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>위+백+체</th>
+                <td class="text-end">{{ 숫자콤마(조건부마법데미지계산().위백체) }} ({{ 숫자콤마(조건부마법데미지계산().위백체 / 조건부마법데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+            <tr>
+                <th>위+에+백+체</th>
+                <td class="text-end">{{ 숫자콤마(조건부마법데미지계산().위에백체) }} ({{ 숫자콤마(조건부마법데미지계산().위에백체 / 조건부마법데미지계산().정면 * 100 )}}%)</td>
+            </tr>
+        </table>
     </div>
     </div>
 </div>
