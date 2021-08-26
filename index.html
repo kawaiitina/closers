@@ -37,7 +37,7 @@
     <div v-if="캐릭터 !== '서유리'">
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#공격력계산">
-            순수 공격력 계산
+            순수 공격력/총 공격력 계산
         </button>    
         <!-- Modal -->
         <div class="modal fade" id="공격력계산" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -60,20 +60,20 @@
                                 <span class="input-group-text">에서</span>
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text">총 물리공격력이 </span>
+                                <span class="input-group-text">총 물리 공격력이 </span>
                                 <input type="number" class="form-control" v-model.number="하락한물공퍼센트">
                                 <span class="input-group-text">%만큼 하락하면</span>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">물리 공격력이</span>
                                 <input type="number" class="form-control" v-model.number="하락한물공">
-                                <span class="input-group-text">된다.</span>
+                                <span class="input-group-text">이(가) 된다.</span>
                             </div>
                             <div>
-                                순수 물리 공격력: {{ 숫자콤마(순수물리공격력계산().순물공) }}, 총 물리 공격력(%): {{ 소수점두자리콤마(순수물리공격력계산().총물공) }}
-                            </div>   
-                            <hr> 
+                                순수 물리 공격력(웨폰코어 제외): {{ 숫자콤마(순수물리공격력계산().순물공) }}, 총 물리 공격력(%): {{ 소수점두자리콤마(순수물리공격력계산().총물공) }}
+                            </div>
                         </div>
+                        <hr  v-if="캐릭터_데이터[캐릭터].타입 === '하이브리드'"> 
                         <div v-if="캐릭터_데이터[캐릭터].타입 === '마법' || 캐릭터_데이터[캐릭터].타입 === '하이브리드'">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">처음 마법 공격력이</span>
@@ -81,17 +81,17 @@
                                 <span class="input-group-text">에서</span>
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text">총 마법공격력이 </span>
+                                <span class="input-group-text">총 마법 공격력이 </span>
                                 <input type="number" class="form-control" v-model.number="하락한마공퍼센트">
                                 <span class="input-group-text">%만큼 하락하면</span>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">마법 공격력이</span>
                                 <input type="number" class="form-control" v-model.number="하락한마공">
-                                <span class="input-group-text">된다.</span>
+                                <span class="input-group-text">이(가) 된다.</span>
                             </div>
                             <div>
-                                순수 마법 공격력: {{ 숫자콤마(순수마법공격력계산().순마공) }}, 총 마법 공격력(%): {{ 소수점두자리콤마(순수마법공격력계산().총마공) }}
+                                순수 마법 공격력(웨폰코어 제외): {{ 숫자콤마(순수마법공격력계산().순마공) }}, 총 마법 공격력(%): {{ 소수점두자리콤마(순수마법공격력계산().총마공) }}
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
     <div v-if="캐릭터 === '서유리'">
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#공격력계산">
-            순수 공격력 계산(서유리)
+            순수 공격력/총 공격력 계산
         </button>    
         <!-- Modal -->
         <div class="modal fade" id="공격력계산" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -127,17 +127,17 @@
                             <span class="input-group-text">에서</span>
                         </div>
                         <div class="input-group mb-3">
-                            <span class="input-group-text">총 물리, 마법공격력이 </span>
+                            <span class="input-group-text">총 물리, 마법 공격력이 </span>
                             <input type="number" class="form-control" v-model.number="하락한물공퍼센트">
                             <span class="input-group-text">%만큼 하락하면</span>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">물리 공격력이</span>
                             <input type="number" class="form-control" v-model.number="하락한물공">
-                            <span class="input-group-text">된다.</span>
+                            <span class="input-group-text">이(가) 된다.</span>
                         </div>
                         <div>
-                            순수 물리 공격력(보정 전): {{ 숫자콤마(서유리순수물리공격력계산().보정전순물공) }}, 총 물리 공격력(%): {{ 숫자콤마(서유리순수물리공격력계산().총물공) }}
+                            순수 물리 공격력(전투 감각 보정 전, 웨폰코어 제외): {{ 숫자콤마(서유리순수물리공격력계산().보정전순물공) }}, 총 물리 공격력(%): {{ 숫자콤마(서유리순수물리공격력계산().총물공) }}
                         </div>
                         <hr>
                         <div class="input-group mb-3">
@@ -146,17 +146,17 @@
                             <span class="input-group-text">에서</span>
                         </div>
                         <div class="input-group mb-3">
-                            <span class="input-group-text">총 물리, 마법공격력이 </span>
+                            <span class="input-group-text">총 물리, 마법 공격력이 </span>
                             <input type="number" class="form-control" v-model.number="하락한물공퍼센트">
                             <span class="input-group-text">%만큼 하락하면</span>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">마법 공격력이</span>
                             <input type="number" class="form-control" v-model.number="하락한마공">
-                            <span class="input-group-text">된다.</span>
+                            <span class="input-group-text">이(가) 된다.</span>
                         </div>
                         <div>
-                            순수 마법 공격력(보정) 전): {{ 숫자콤마(서유리순수마법공격력계산().보정전순마공) }}, 총 마법 공격력(%): {{ 소수점두자리콤마(서유리순수마법공격력계산().총마공) }}
+                            순수 마법 공격력(전투 감각 보정 전, 웨폰코어 제외): {{ 숫자콤마(서유리순수마법공격력계산().보정전순마공) }}, 총 마법 공격력(%): {{ 소수점두자리콤마(서유리순수마법공격력계산().총마공) }}
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -302,6 +302,7 @@
         <br>
         합피증: {{ 소수점두자리콤마(this.위개뎀 + this.에피증 + this.백피증 + this.체피증) }}%
     </div>
+    <!-- 물공 -->
     <div v-if="캐릭터 === '제이' || 
         캐릭터 === '루나' || 
         캐릭터 === '소마'|| 
@@ -353,6 +354,7 @@
             </tr>
         </table>
     </div>
+    <!-- 마공 -->
     <div v-if="캐릭터 === '이슬비' || 
     캐릭터 === '미스틸테인' || 
     캐릭터 === '볼프강' || 
@@ -405,6 +407,7 @@
             </tr>
         </table>
     </div>
+    <!-- 하이브리드 -->
     <div v-if="캐릭터 === '바이올렛' || 
     캐릭터 === '김철수' || 
     캐릭터 === '루시'">
