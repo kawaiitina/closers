@@ -588,7 +588,7 @@ const app = new Vue({
                     백치피: this.백치피,
                     체치피: this.체치피,
                     쿨감: this.쿨감
-                }, this.캐릭터)- 기존종전;
+                }, this.캐릭터) - 기존종전;
             };
             const 마공추가종전 = x => {
                 return this.하이브리드종합전투력계산({
@@ -605,7 +605,7 @@ const app = new Vue({
                     백치피: this.백치피,
                     체치피: this.체치피,
                     쿨감: this.쿨감
-                }, this.캐릭터)- 기존종전;
+                }, this.캐릭터) - 기존종전;
             };
             const 총마공추가종전 =  x => {
                 return this.하이브리드종합전투력계산({
@@ -622,7 +622,7 @@ const app = new Vue({
                     백치피: this.백치피,
                     체치피: this.체치피,
                     쿨감: this.쿨감
-                }, this.캐릭터- 기존종전);
+                }, this.캐릭터) - 기존종전;
             };
             const 물치피추가종전 = x => {
                 return this.하이브리드종합전투력계산({
@@ -639,7 +639,7 @@ const app = new Vue({
                     백치피: this.백치피,
                     체치피: this.체치피,
                     쿨감: this.쿨감
-                }, this.캐릭터)- 기존종전;
+                }, this.캐릭터) - 기존종전;
             };
             const 마치피추가종전 = x => {
                 return this.하이브리드종합전투력계산({
@@ -656,7 +656,7 @@ const app = new Vue({
                     백치피: this.백치피,
                     체치피: this.체치피,
                     쿨감: this.쿨감
-                }, this.캐릭터)- 기존종전;
+                }, this.캐릭터) - 기존종전;
             };
             const 조건부치피추가종전 = x => {
                 return this.하이브리드종합전투력계산({
@@ -673,7 +673,7 @@ const app = new Vue({
                     백치피: this.백치피,
                     체치피: this.체치피,
                     쿨감: this.쿨감
-                }, this.캐릭터)- 기존종전;
+                }, this.캐릭터) - 기존종전;
             };
             const 위개뎀추가종전 = x => {
                 return this.하이브리드종합전투력계산({
@@ -690,7 +690,7 @@ const app = new Vue({
                     백치피: this.백치피,
                     체치피: this.체치피,
                     쿨감: this.쿨감
-                }, this.캐릭터)- 기존종전;
+                }, this.캐릭터) - 기존종전;
             };
             const 에피증추가종전 = x => {
                 return this.하이브리드종합전투력계산({
@@ -707,7 +707,7 @@ const app = new Vue({
                     백치피: this.백치피,
                     체치피: this.체치피,
                     쿨감: this.쿨감
-                }, this.캐릭터)- 기존종전;
+                }, this.캐릭터) - 기존종전;
             };
             const 백피증추가종전 = x => {
                 return this.하이브리드종합전투력계산({
@@ -724,7 +724,7 @@ const app = new Vue({
                     백치피: this.백치피,
                     체치피: this.체치피,
                     쿨감: this.쿨감
-                }, this.캐릭터)- 기존종전;
+                }, this.캐릭터) - 기존종전;
             };
             const 체피증추가종전 = x => {
                 return this.하이브리드종합전투력계산({
@@ -741,7 +741,7 @@ const app = new Vue({
                     백치피: this.백치피,
                     체치피: this.체치피,
                     쿨감: this.쿨감
-                }, this.캐릭터)- 기존종전;
+                }, this.캐릭터) - 기존종전;
             };
             const 공속추가종전 = x => {
                 return this.하이브리드종합전투력계산({
@@ -758,7 +758,7 @@ const app = new Vue({
                     백치피: this.백치피,
                     체치피: this.체치피,
                     쿨감: this.쿨감
-                }, this.캐릭터)- 기존종전;
+                }, this.캐릭터) - 기존종전;
             };
             const 쿨감추가종전 = x => {
                 return this.하이브리드종합전투력계산({
@@ -775,7 +775,7 @@ const app = new Vue({
                     백치피: this.백치피,
                     체치피: this.체치피,
                     쿨감: 곱연산(this.쿨감, x)
-                }, this.캐릭터)- 기존종전;
+                }, this.캐릭터) - 기존종전;
             };
             return {
                 기존종전: 기존종전,
