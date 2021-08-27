@@ -10,6 +10,8 @@
 <body>
 <div id="app">
     <div class="container-sm">
+
+    <!-- 캐릭터 선택 -->
     <div class="form-floating mb-3">
         <select class="form-select" id="캐릭터" v-model="캐릭터">
           <option value="이세하" selected>이세하</option>
@@ -34,9 +36,11 @@
         </select>
         <label for="캐릭터">캐릭터</label>
     </div>
+
+    <!-- 순수 공격력/총 공격력 계산 -->
     <div v-if="캐릭터 !== '서유리'">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#공격력계산">
+        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#공격력계산">
             순수 공격력/총 공격력 계산
         </button>    
         <!-- Modal -->
@@ -104,7 +108,7 @@
     </div>
     <div v-if="캐릭터 === '서유리'">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#공격력계산">
+        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#공격력계산">
             순수 공격력/총 공격력 계산
         </button>    
         <!-- Modal -->
@@ -167,6 +171,7 @@
         </div>
     </div>
 
+    <!-- 능력치 입력 -->
     <div>
         <div class="input-group mb-3" v-if="캐릭터_데이터[캐릭터].타입 === '물리' || 캐릭터_데이터[캐릭터].타입 === '하이브리드'">
             <span class="input-group-text">물리 공격력</span>
@@ -233,7 +238,7 @@
         </div>
     </div>
 
-  
+    <!-- 종합전투력, 합치피, 합피증 표시 -->
     <div class="h4" v-if="캐릭터_데이터[캐릭터].타입 === '물리'">
         종합전투력: {{ 숫자콤마(물리종합전투력계산({
                 공속: this.공속,
@@ -302,7 +307,8 @@
         <br>
         합피증: {{ 소수점두자리콤마(this.위개뎀 + this.에피증 + this.백피증 + this.체피증) }}%
     </div>
-    <!-- 물공 -->
+
+    <!-- 물공 종합 전투력 증가량 -->
     <div v-if="캐릭터 === '제이' || 
         캐릭터 === '루나' || 
         캐릭터 === '소마'|| 
@@ -310,14 +316,14 @@
         <table class="table">
             <tr>
                 <th></th>
-                <th class="text-end">종합 전투력 상승량</th>
+                <th class="text-end">종합 전투력 증가량</th>
             </tr>
             <tr>
                 <th>물리 공격력 100</th>
                 <td class="text-end">{{ 숫자콤마(물리종전효율계산().물공100추가종전) }}</td>
             </tr>
             <tr>
-                <th>물리 공격력 1%</th>
+                <th>총 물리 공격력 1%</th>
                 <td class="text-end">{{ 숫자콤마(물리종전효율계산().물공1퍼센트추가종전) }}</td>
             </tr>
             <tr>
@@ -354,7 +360,7 @@
             </tr>
         </table>
     </div>
-    <!-- 마공 -->
+    <!-- 마공 종합 전투력 증가량 -->
     <div v-if="캐릭터 === '이슬비' || 
     캐릭터 === '미스틸테인' || 
     캐릭터 === '볼프강' || 
@@ -363,14 +369,14 @@
         <table class="table">
             <tr>
                 <th></th>
-                <th class="text-end">종합 전투력 상승량</th>
+                <th class="text-end">종합 전투력 증가량</th>
             </tr>
             <tr>
                 <th>마법 공격력 100</th>
                 <td class="text-end">{{ 숫자콤마(마법종전효율계산().마공100추가종전) }}</td>
             </tr>
             <tr>
-                <th>마법 공격력 1%</th>
+                <th>총 마법 공격력 1%</th>
                 <td class="text-end">{{ 숫자콤마(마법종전효율계산().마공1퍼센트추가종전) }}</td>
             </tr>
             <tr>
@@ -407,21 +413,21 @@
             </tr>
         </table>
     </div>
-    <!-- 하이브리드 -->
+    <!-- 하이브리드 종합 전투력 증가량 -->
     <div v-if="캐릭터 === '바이올렛' || 
     캐릭터 === '김철수' || 
     캐릭터 === '루시'">
         <table class="table">
             <tr>
                 <th></th>
-                <th class="text-end">종합 전투력 상승량</th>
+                <th class="text-end">종합 전투력 증가량</th>
             </tr>
             <tr>
                 <th>물리 공격력 100</th>
                 <td class="text-end">{{ 숫자콤마(하이브리드종전효율계산().물공100추가종전) }}</td>
             </tr>
             <tr>
-                <th>물리 공격력 1%</th>
+                <th>총 물리 공격력 1%</th>
                 <td class="text-end">{{ 숫자콤마(하이브리드종전효율계산().물공1퍼센트추가종전) }}</td>
             </tr>
             <tr>
@@ -429,7 +435,7 @@
                 <td class="text-end">{{ 숫자콤마(하이브리드종전효율계산().마공100추가종전) }}</td>
             </tr>
             <tr>
-                <th>마법 공격력 1%</th>
+                <th>총 마법 공격력 1%</th>
                 <td class="text-end">{{ 숫자콤마(하이브리드종전효율계산().마공1퍼센트추가종전) }}</td>
             </tr>
             <tr>
@@ -470,18 +476,19 @@
             </tr>
         </table>
     </div>
+    <!-- 캐릭터별 종합 전투력 증가량 -->
     <div v-if="캐릭터 === '이세하'">
         <table class="table">
             <tr>
                 <th></th>
-                <th class="text-end">종합 전투력 상승량</th>
+                <th class="text-end">종합 전투력 증가량</th>
             </tr>
             <tr>
                 <th>물리 공격력 100</th>
                 <td class="text-end">{{ 숫자콤마(이세하종전효율계산().물공100추가종전) }}</td>
             </tr>
             <tr>
-                <th>물리 공격력 1%</th>
+                <th>총 물리 공격력 1%</th>
                 <td class="text-end">{{ 숫자콤마(이세하종전효율계산().물공1퍼센트추가종전) }}</td>
             </tr>
             <tr>
@@ -522,14 +529,14 @@
         <table class="table">
             <tr>
                 <th></th>
-                <th class="text-end">종합 전투력 상승량</th>
+                <th class="text-end">종합 전투력 증가량</th>
             </tr>
             <tr>
                 <th>물리 공격력 100</th>
                 <td class="text-end">{{ 숫자콤마(서유리종전효율계산().물공100추가종전) }}</td>
             </tr>
             <tr>
-                <th>물리 공격력 1%</th>
+                <th>총 물리 공격력 1%</th>
                 <td class="text-end">{{ 숫자콤마(서유리종전효율계산().물공1퍼센트추가종전) }}</td>
             </tr>
             <tr>
@@ -537,7 +544,7 @@
                 <td class="text-end">{{ 숫자콤마(서유리종전효율계산().마공100추가종전) }}</td>
             </tr>
             <tr>
-                <th>마법 공격력 1%</th>
+                <th>총 마법 공격력 1%</th>
                 <td class="text-end">{{ 숫자콤마(서유리종전효율계산().마공1퍼센트추가종전) }}</td>
             </tr>
             <tr>
@@ -582,14 +589,14 @@
         <table class="table">
             <tr>
                 <th></th>
-                <th class="text-end">종합 전투력 상승량</th>
+                <th class="text-end">종합 전투력 증가량</th>
             </tr>
             <tr>
                 <th>물리 공격력 100</th>
                 <td class="text-end">{{ 숫자콤마(나타종전효율계산().물공100추가종전) }}</td>
             </tr>
             <tr>
-                <th>물리 공격력 1%</th>
+                <th>총 물리 공격력 1%</th>
                 <td class="text-end">{{ 숫자콤마(나타종전효율계산().물공1퍼센트추가종전) }}</td>
             </tr>
             <tr>
@@ -630,14 +637,14 @@
         <table class="table">
             <tr>
                 <th></th>
-                <th class="text-end">종합 전투력 상승량</th>
+                <th class="text-end">종합 전투력 증가량</th>
             </tr>
             <tr>
                 <th>물리 공격력 100</th>
                 <td class="text-end">{{ 숫자콤마(하피종전효율계산().물공100추가종전) }}</td>
             </tr>
             <tr>
-                <th>물리 공격력 1%</th>
+                <th>총 물리 공격력 1%</th>
                 <td class="text-end">{{ 숫자콤마(하피종전효율계산().물공1퍼센트추가종전) }}</td>
             </tr>
             <tr>
@@ -678,14 +685,14 @@
         <table class="table">
             <tr>
                 <th></th>
-                <th class="text-end">종합 전투력 상승량</th>
+                <th class="text-end">종합 전투력 증가량</th>
             </tr>
             <tr>
                 <th>물리 공격력 100</th>
                 <td class="text-end">{{ 숫자콤마(티나종전효율계산().물공100추가종전) }}</td>
             </tr>
             <tr>
-                <th>물리 공격력 1%</th>
+                <th>총 물리 공격력 1%</th>
                 <td class="text-end">{{ 숫자콤마(티나종전효율계산().물공1퍼센트추가종전) }}</td>
             </tr>
             <tr>
@@ -726,14 +733,14 @@
         <table class="table">
             <tr>
                 <th></th>
-                <th class="text-end">종합 전투력 상승량</th>
+                <th class="text-end">종합 전투력 증가량</th>
             </tr>
             <tr>
                 <th>물리 공격력 100</th>
                 <td class="text-end">{{ 숫자콤마(파이종전효율계산().물공100추가종전) }}</td>
             </tr>
             <tr>
-                <th>물리 공격력 1%</th>
+                <th>총 물리 공격력 1%</th>
                 <td class="text-end">{{ 숫자콤마(파이종전효율계산().물공1퍼센트추가종전) }}</td>
             </tr>
             <tr>
@@ -741,7 +748,7 @@
                 <td class="text-end">{{ 숫자콤마(파이종전효율계산().마공100추가종전) }}</td>
             </tr>
             <tr>
-                <th>마법 공격력 1%</th>
+                <th>총 마법 공격력 1%</th>
                 <td class="text-end">{{ 숫자콤마(파이종전효율계산().마공1퍼센트추가종전) }}</td>
             </tr>
             <tr>
@@ -786,14 +793,14 @@
         <table class="table">
             <tr>
                 <th></th>
-                <th class="text-end">종합 전투력 상승량</th>
+                <th class="text-end">종합 전투력 증가량</th>
             </tr>
             <tr>
                 <th>마법 공격력 100</th>
                 <td class="text-end">{{ 숫자콤마(레비아종전효율계산().마공100추가종전) }}</td>
             </tr>
             <tr>
-                <th>마법 공격력 1%</th>
+                <th>총 마법 공격력 1%</th>
                 <td class="text-end">{{ 숫자콤마(레비아종전효율계산().마공1퍼센트추가종전) }}</td>
             </tr>
             <tr>
@@ -832,9 +839,10 @@
     </div>
     <div>모든 계산 결과는 실제 값과 다를 수 있습니다. 참고용으로만 사용하시기 바랍니다.</div>
     
+    <!-- 계산 공식 -->
     <div>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#설명">
+        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#설명">
             사용된 종합전투력 계산 공식
         </button>    
         <!-- Modal -->
@@ -949,6 +957,8 @@
         </div>
     </div>
     <hr>
+
+    <!-- 스킬 데미지 -->
     <h2>스킬 데미지</h2>
     <div class="input-group mb-3">
         <span class="input-group-text">치피감</span>
