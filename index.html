@@ -74,7 +74,7 @@
                                 <span class="input-group-text">이(가) 된다.</span>
                             </div>
                             <div>
-                                순수 물리 공격력(웨폰코어 제외): {{ 숫자콤마(순수물리공격력계산().순물공) }}, 총 물리 공격력(%): {{ 소수점두자리콤마(순수물리공격력계산().총물공) }}
+                                순수 물리 공격력(웨폰코어 제외): {{ 숫자콤마(순수물리공격력계산().순물공) }}<br>총 물리 공격력(%): {{ 소수점두자리콤마(순수물리공격력계산().총물공) }}
                             </div>
                         </div>
                         <hr  v-if="캐릭터_데이터[캐릭터].타입 === '하이브리드'"> 
@@ -95,7 +95,7 @@
                                 <span class="input-group-text">이(가) 된다.</span>
                             </div>
                             <div>
-                                순수 마법 공격력(웨폰코어 제외): {{ 숫자콤마(순수마법공격력계산().순마공) }}, 총 마법 공격력(%): {{ 소수점두자리콤마(순수마법공격력계산().총마공) }}
+                                순수 마법 공격력(웨폰코어 제외): {{ 숫자콤마(순수마법공격력계산().순마공) }}<br>총 마법 공격력(%): {{ 소수점두자리콤마(순수마법공격력계산().총마공) }}
                             </div>
                         </div>
                     </div>
@@ -141,7 +141,7 @@
                             <span class="input-group-text">이(가) 된다.</span>
                         </div>
                         <div>
-                            순수 물리 공격력(전투 감각 보정 전, 웨폰코어 제외): {{ 숫자콤마(서유리순수물리공격력계산().보정전순물공) }}, 총 물리 공격력(%): {{ 숫자콤마(서유리순수물리공격력계산().총물공) }}
+                            순수 물리 공격력(전투 감각 보정 전, 웨폰코어 제외): {{ 숫자콤마(서유리순수물리공격력계산().보정전순물공) }}<br>총 물리 공격력(%): {{ 소수점두자리콤마(서유리순수물리공격력계산().총물공) }}
                         </div>
                         <hr>
                         <div class="input-group mb-3">
@@ -160,7 +160,7 @@
                             <span class="input-group-text">이(가) 된다.</span>
                         </div>
                         <div>
-                            순수 마법 공격력(전투 감각 보정 전, 웨폰코어 제외): {{ 숫자콤마(서유리순수마법공격력계산().보정전순마공) }}, 총 마법 공격력(%): {{ 소수점두자리콤마(서유리순수마법공격력계산().총마공) }}
+                            순수 마법 공격력(전투 감각 보정 전, 웨폰코어 제외): {{ 숫자콤마(서유리순수마법공격력계산().보정전순마공) }}<br>총 마법 공격력(%): {{ 소수점두자리콤마(서유리순수마법공격력계산().총마공) }}
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -355,6 +355,75 @@
                 <th>스킬 재사용 대기시간 감소 1%</th>
                 <td class="text-end">{{ 숫자콤마(물리종전효율계산({쿨감: 1})) }}</td>
             </tr>
+            <tr>
+                <th>
+                    <div>
+                        <div class="input-group">
+                            <span class="input-group-text">물리 공격력 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="물공변화량">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">총 물리 공격력 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="총물공변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">물리 치명타 피해량 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="물치피변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">조건부 치명타 피해량 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="조건부치피변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">위상력 개방시 데미지 증가 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="위개뎀변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">에어리얼시 피해량 증가 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="에피증변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">백어택시 피해량 증가 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="백피증변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">체이스시 피해량 증가 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="체피증변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">공격 속도(%) 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="공속변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">스킬 재사용 대기시간 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="쿨감변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                    </div>
+                </th>
+                <td class="text-end align-middle">
+                    {{ 숫자콤마(물리종전효율계산({
+                        물공: 물공변화량,
+                        총물공: 총물공변화량,
+                        물치피: 물치피변화량,
+                        에치피: 조건부치피변화량,
+                        공속: 공속변화량,
+                        위개뎀: 위개뎀변화량,
+                        에피증: 에피증변화량,
+                        백피증: 백피증변화량,
+                        체피증: 체피증변화량,
+                        쿨감: 쿨감변화량
+                    })) }}
+                </td>
+            </tr>
         </table>
     </div>
     <!-- 마공 종합 전투력 증가량 -->
@@ -403,6 +472,75 @@
             <tr>
                 <th>스킬 재사용 대기시간 감소 1%</th>
                 <td class="text-end">{{ 숫자콤마(마법종전효율계산({쿨감: 1})) }}</td>
+            </tr>
+            <tr>
+                <th>
+                    <div>
+                        <div class="input-group">
+                            <span class="input-group-text">마법 공격력 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="마공변화량">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">총 마법 공격력 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="총마공변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">마법 치명타 피해량 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="마치피변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">조건부 치명타 피해량 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="조건부치피변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">위상력 개방시 데미지 증가 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="위개뎀변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">에어리얼시 피해량 증가 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="에피증변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">백어택시 피해량 증가 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="백피증변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">체이스시 피해량 증가 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="체피증변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">공격 속도(%) 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="공속변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">스킬 재사용 대기시간 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="쿨감변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                    </div>
+                </th>
+                <td class="text-end align-middle">
+                    {{ 숫자콤마(마법종전효율계산({
+                        마공: 마공변화량,
+                        총마공: 총마공변화량,
+                        마치피: 마치피변화량,
+                        에치피: 조건부치피변화량,
+                        공속: 공속변화량,
+                        위개뎀: 위개뎀변화량,
+                        에피증: 에피증변화량,
+                        백피증: 백피증변화량,
+                        체피증: 체피증변화량,
+                        쿨감: 쿨감변화량
+                    })) }}
+                </td>
             </tr>
         </table>
     </div>
@@ -465,6 +603,93 @@
                 <th>스킬 재사용 대기시간 감소 1%</th>
                 <td class="text-end">{{ 숫자콤마(하이브리드종전효율계산({쿨감: 1})) }}</td>
             </tr>
+            <tr>
+                <th>
+                    <div>
+                        <div class="input-group">
+                            <span class="input-group-text">물리 공격력 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="물공변화량">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">마법 공격력 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="마공변화량">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">총 물리 공격력 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="총물공변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">총 마법 공격력 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="총마공변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">물리 치명타 피해량 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="물치피변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">마법 치명타 피해량 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="마치피변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">조건부 치명타 피해량 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="조건부치피변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">위상력 개방시 데미지 증가 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="위개뎀변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">에어리얼시 피해량 증가 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="에피증변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">백어택시 피해량 증가 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="백피증변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">체이스시 피해량 증가 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="체피증변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">공격 속도(%) 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="공속변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">스킬 재사용 대기시간 변화량</span>
+                            <input type="number" class="form-control text-end" v-model.number="쿨감변화량">
+                            <span class="input-group-text">%</span>
+                        </div>
+                    </div>
+                </th>
+                <td class="text-end align-middle">
+                    {{ 숫자콤마(하이브리드종전효율계산({
+                        물공: 물공변화량,
+                        마공: 마공변화량,
+                        총물공: 총물공변화량,
+                        총마공: 총마공변화량,
+                        물치피: 물치피변화량,
+                        마치피: 마치피변화량,
+                        에치피: 조건부치피변화량,
+                        공속: 공속변화량,
+                        위개뎀: 위개뎀변화량,
+                        에피증: 에피증변화량,
+                        백피증: 백피증변화량,
+                        체피증: 체피증변화량,
+                        쿨감: 쿨감변화량
+                    })) }}
+                </td>
+            </tr>
+
         </table>
     </div>
     <div>모든 계산 결과는 실제 값과 다를 수 있습니다. 참고용으로만 사용하시기 바랍니다.</div>
