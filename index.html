@@ -50,23 +50,23 @@
                     <div class="modal-body">
                         <div class="input-group mb-3">
                             <span class="input-group-text">웨폰 코어 공격력</span>
-                            <input type="number" class="form-control" v-model.number="코어공격력">
+                            <input type="number" class="form-control text-end" v-model.number="코어공격력">
                         </div>
                         <hr> 
                         <div v-if="캐릭터_데이터[캐릭터].타입 === '물리' || 캐릭터_데이터[캐릭터].타입 === '하이브리드'">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">처음 물리 공격력이</span>
-                                <input type="number" class="form-control" v-model.number="물공">
+                                <input type="number" class="form-control text-end" v-model.number="물공">
                                 <span class="input-group-text">에서</span>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">총 물리 공격력이 </span>
-                                <input type="number" class="form-control" v-model.number="하락한물공퍼센트">
+                                <input type="number" class="form-control text-end" v-model.number="하락한물공퍼센트">
                                 <span class="input-group-text">%만큼 하락하면</span>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">물리 공격력이</span>
-                                <input type="number" class="form-control" v-model.number="하락한물공">
+                                <input type="number" class="form-control text-end" v-model.number="하락한물공">
                                 <span class="input-group-text">이(가) 된다.</span>
                             </div>
                             <div>
@@ -77,17 +77,17 @@
                         <div v-if="캐릭터_데이터[캐릭터].타입 === '마법' || 캐릭터_데이터[캐릭터].타입 === '하이브리드'">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">처음 마법 공격력이</span>
-                                <input type="number" class="form-control" v-model.number="마공">
+                                <input type="number" class="form-control text-end" v-model.number="마공">
                                 <span class="input-group-text">에서</span>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">총 마법 공격력이 </span>
-                                <input type="number" class="form-control" v-model.number="하락한마공퍼센트">
+                                <input type="number" class="form-control text-end" v-model.number="하락한마공퍼센트">
                                 <span class="input-group-text">%만큼 하락하면</span>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">마법 공격력이</span>
-                                <input type="number" class="form-control" v-model.number="하락한마공">
+                                <input type="number" class="form-control text-end" v-model.number="하락한마공">
                                 <span class="input-group-text">이(가) 된다.</span>
                             </div>
                             <div>
@@ -118,22 +118,22 @@
                     <div class="modal-body">
                         <div class="input-group mb-3">
                             <span class="input-group-text">웨폰 코어 공격력</span>
-                            <input type="number" class="form-control" v-model.number="코어공격력">
+                            <input type="number" class="form-control text-end" v-model.number="코어공격력">
                         </div>
                         <hr> 
                         <div class="input-group mb-3">
                             <span class="input-group-text">처음 물리 공격력이</span>
-                            <input type="number" class="form-control" v-model.number="물공">
+                            <input type="number" class="form-control text-end" v-model.number="물공">
                             <span class="input-group-text">에서</span>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">총 물리, 마법 공격력이 </span>
-                            <input type="number" class="form-control" v-model.number="하락한물공퍼센트">
+                            <input type="number" class="form-control text-end" v-model.number="하락한물공퍼센트">
                             <span class="input-group-text">%만큼 하락하면</span>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">물리 공격력이</span>
-                            <input type="number" class="form-control" v-model.number="하락한물공">
+                            <input type="number" class="form-control text-end" v-model.number="하락한물공">
                             <span class="input-group-text">이(가) 된다.</span>
                         </div>
                         <div>
@@ -142,17 +142,17 @@
                         <hr>
                         <div class="input-group mb-3">
                             <span class="input-group-text">처음 마법 공격력이</span>
-                            <input type="number" class="form-control" v-model.number="마공">
+                            <input type="number" class="form-control text-end" v-model.number="마공">
                             <span class="input-group-text">에서</span>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">총 물리, 마법 공격력이 </span>
-                            <input type="number" class="form-control" v-model.number="하락한물공퍼센트">
+                            <input type="number" class="form-control text-end" v-model.number="하락한물공퍼센트">
                             <span class="input-group-text">%만큼 하락하면</span>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">마법 공격력이</span>
-                            <input type="number" class="form-control" v-model.number="하락한마공">
+                            <input type="number" class="form-control text-end" v-model.number="하락한마공">
                             <span class="input-group-text">이(가) 된다.</span>
                         </div>
                         <div>
@@ -170,65 +170,65 @@
     <div>
         <div class="input-group mb-3" v-if="캐릭터_데이터[캐릭터].타입 === '물리' || 캐릭터_데이터[캐릭터].타입 === '하이브리드'">
             <span class="input-group-text">물리 공격력</span>
-            <input type="number" class="form-control" v-model.number="물공">
+            <input type="number" class="form-control text-end" v-model.number="물공">
         </div>
         <div class="input-group mb-3" v-if="캐릭터_데이터[캐릭터].타입 === '마법' || 캐릭터_데이터[캐릭터].타입 === '하이브리드'">
             <span class="input-group-text">마법 공격력</span>
-            <input type="number" class="form-control" v-model.number="마공">
+            <input type="number" class="form-control text-end" v-model.number="마공">
         </div>
         <div class="input-group mb-3" v-if="캐릭터_데이터[캐릭터].타입 === '물리' || 캐릭터_데이터[캐릭터].타입 === '하이브리드'">
             <span class="input-group-text">물리 치명타 피해량</span>
-            <input type="number" class="form-control" v-model.number="물치피">
+            <input type="number" class="form-control text-end" v-model.number="물치피">
             <span class="input-group-text">%</span>
         </div>
         <div class="input-group mb-3" v-if="캐릭터_데이터[캐릭터].타입 === '마법' || 캐릭터_데이터[캐릭터].타입 === '하이브리드'">
             <span class="input-group-text">마법 치명타 피해량</span>
-            <input type="number" class="form-control" v-model.number="마치피">
+            <input type="number" class="form-control text-end" v-model.number="마치피">
             <span class="input-group-text">%</span>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text">공격 속도(%)</span>
-            <input type="number" class="form-control" v-model.number="공속">
+            <input type="number" class="form-control text-end" v-model.number="공속">
             <span class="input-group-text">%</span>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text">위상력 개방시 데미지 증가</span>
-            <input type="number" class="form-control" v-model.number="위개뎀">
+            <input type="number" class="form-control text-end" v-model.number="위개뎀">
             <span class="input-group-text">%</span>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text">에어리얼시 피해량 증가</span>
-            <input type="number" class="form-control" v-model.number="에피증">
+            <input type="number" class="form-control text-end" v-model.number="에피증">
             <span class="input-group-text">%</span>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text">에어리얼시 치명타 피해량</span>
-            <input type="number" class="form-control" v-model.number="에치피">
+            <input type="number" class="form-control text-end" v-model.number="에치피">
             <span class="input-group-text">%</span>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text">백어택시 피해량 증가</span>
-            <input type="number" class="form-control" v-model.number="백피증">
+            <input type="number" class="form-control text-end" v-model.number="백피증">
             <span class="input-group-text">%</span>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text">백어택시 치명타 피해량</span>
-            <input type="number" class="form-control" v-model.number="백치피">
+            <input type="number" class="form-control text-end" v-model.number="백치피">
             <span class="input-group-text">%</span>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text">체이스시 피해량 증가</span>
-            <input type="number" class="form-control" v-model.number="체피증">
+            <input type="number" class="form-control text-end" v-model.number="체피증">
             <span class="input-group-text">%</span>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text">체이스시 치명타 피해량</span>
-            <input type="number" class="form-control" v-model.number="체치피">
+            <input type="number" class="form-control text-end" v-model.number="체치피">
             <span class="input-group-text">%</span>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text">스킬 재사용 대기시간</span>
-            <input type="number" class="form-control" v-model.number="쿨감">
+            <input type="number" class="form-control text-end" v-model.number="쿨감">
             <span class="input-group-text">%</span>
         </div>
     </div>
@@ -849,7 +849,7 @@
                         <ul>
                             <li>종합 전투력 = 물리/마법 공격력 × (1 + 공격 속도(%)/10) × (1 + 스킬 재사용 대기시간 감소) × (1 + 보정합치피) × (1 + 합피증) × 방관보정계수 × (1 + 캐릭터 계수)</li>
                             <li>보정합치피 = 물리/마법 치명타 피해량 × (1 + 캐릭터 계수) + 에어리얼시 치명타 피해량 + 백어택시 치명타 피해량 + 체이스시 치명타 피해량</li>        
-                            <li>합피증 = 위상력 개방시 피해량 증가 + 에어리얼시 피해량 증가 + 백어택시 피해랴 증가 + 체이스시 피해량 증가</li>
+                            <li>합피증 = 위상력 개방시 데미지 증가 + 에어리얼시 피해량 증가 + 백어택시 피해량 증가 + 체이스시 피해량 증가</li>
                             <li>방관보정계수 = 1 + (보정합치피 / (1 + 보정합치피) / 8)</li>
                             <li>치명타 발생률, 방어 관통률 100% 기준</li>
                             <li>스킬 재사용 대기시간 감소는 최대 40%까지 적용</li>
@@ -952,17 +952,22 @@
     <h2>스킬 데미지</h2>
     <div class="input-group mb-3">
         <span class="input-group-text">치피감</span>
-        <input type="number" class="form-control" v-model.number="치피감">
+        <input type="number" class="form-control text-end" v-model.number="치피감">
         <span class="input-group-text">%</span>
     </div>
     <div class="input-group mb-3">
         <span class="input-group-text">뎀감</span>
-        <input type="number" class="form-control" v-model.number="뎀감">
+        <input type="number" class="form-control text-end" v-model.number="뎀감">
         <span class="input-group-text">%</span>
     </div>
     <div class="input-group mb-3">
         <span class="input-group-text">스킬계수</span>
-        <input type="number" class="form-control" v-model.number="스킬계수">
+        <input type="number" class="form-control text-end" v-model.number="스킬계수">
+        <span class="input-group-text">%</span>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">방어 타입에 피해량 증가 </span>
+        <input type="number" class="form-control text-end" v-model.number="타입피증">
         <span class="input-group-text">%</span>
     </div>
     <div v-if="캐릭터_데이터[캐릭터].타입 === '물리' || 캐릭터_데이터[캐릭터].타입 === '하이브리드' ">
